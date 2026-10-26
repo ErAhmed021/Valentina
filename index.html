@@ -390,19 +390,13 @@
 
       <!-- View: Contact & Corporate Enquiries -->
       <article class="view" id="v-contact">
-        <section aria-label="Editorial Contact Banner" style="margin-bottom: 40px;">
-          <div class="banner-media">
-            <img src="assets/images/brand-story/banner.webp" alt="" width="1916" height="821" loading="lazy" decoding="async" aria-hidden="true">
-          </div>
-        </section>
-
         <section aria-labelledby="contact-heading">
           <div class="contact-layout">
             <!-- Left Column: Form -->
             <div class="contact-form-col">
               <p class="eyebrow">Contact Us</p>
               <h1 id="contact-heading">Corporate Enquiries</h1>
-              <p>For strategic partnerships, corporate collaborations, media relations, or wholesale enquiries, submit the form below.</p>
+              <p class="contact-sub">For strategic partnerships, corporate collaborations, media relations, or wholesale enquiries, submit the form below.</p>
 
               <form id="f" novalidate>
                 <!-- Spam Bot Honeypot Field -->
@@ -437,12 +431,13 @@
 
                 <div class="form-group">
                   <label for="m">Message *</label>
-                  <textarea id="m" name="message" rows="5" required placeholder="Please provide details about your proposal or enquiry (minimum 10 characters)…"></textarea>
+                  <textarea id="m" name="message" rows="3" required placeholder="Please provide details about your proposal or enquiry (minimum 10 characters)…"></textarea>
                   <span class="err" id="e-m" role="alert"></span>
                 </div>
 
-                <div style="margin-top: 24px;">
+                <div class="form-submit-row">
                   <button class="btn" type="submit">Send enquiry</button>
+                  <span class="form-privacy-hint">Confidential corporate communication.</span>
                 </div>
 
                 <div id="st" role="status" class="form-status" hidden></div>
@@ -451,27 +446,31 @@
 
             <!-- Right Column: Context & Official Profiles -->
             <div class="contact-sidebar">
-              <h3>Customer Care &amp; Boutique Orders</h3>
-              <p>For retail orders, exchanges, sizing guidance, and shipping questions, please visit the boutique portal:</p>
-              <p>
-                <a class="lnk-ext" href="https://valentinaprecious.com/pages/contact" target="_blank" rel="noopener noreferrer">
-                  <span>Customer Care Portal</span>
-                  <svg class="icon-ext" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                </a>
-              </p>
-
-              <h3 style="margin-top: 36px;">Official Profiles</h3>
-              <p>Follow our brand releases and editorial campaigns:</p>
-              <div class="social-icon-group" style="margin-top: 12px;">
-                <a class="social-icon-btn" href="https://www.instagram.com/valentina.precious.lifestyle/" target="_blank" rel="noopener noreferrer" aria-label="Valentina Precious on Instagram">
-                  <svg class="icon-social" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                </a>
-                <a class="social-icon-btn" href="https://www.facebook.com/people/Valentina-Precious" target="_blank" rel="noopener noreferrer" aria-label="Valentina Precious on Facebook">
-                  <svg class="icon-social" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                </a>
+              <div class="contact-sidebar-block">
+                <h3>Customer Care &amp; Boutique Orders</h3>
+                <p>For retail orders, exchanges, sizing guidance, and shipping questions, please visit the boutique portal:</p>
+                <p>
+                  <a class="lnk-ext" href="https://valentinaprecious.com/pages/contact" target="_blank" rel="noopener noreferrer">
+                    <span>Customer Care Portal</span>
+                    <svg class="icon-ext" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+                </p>
               </div>
 
-              <div class="note" style="margin-top: 32px;">
+              <div class="contact-sidebar-block">
+                <h3>Official Profiles</h3>
+                <p>Follow our brand releases and editorial campaigns:</p>
+                <div class="social-icon-group" style="margin-top: 8px;">
+                  <a class="social-icon-btn" href="https://www.instagram.com/valentina.precious.lifestyle/" target="_blank" rel="noopener noreferrer" aria-label="Valentina Precious on Instagram">
+                    <svg class="icon-social" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  </a>
+                  <a class="social-icon-btn" href="https://www.facebook.com/people/Valentina-Precious" target="_blank" rel="noopener noreferrer" aria-label="Valentina Precious on Facebook">
+                    <svg class="icon-social" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="note contact-verification-note">
                 <strong>Verification Status:</strong> Direct corporate telephone and registered office email will be published upon verified owner confirmation.
               </div>
             </div>
@@ -553,7 +552,7 @@
       </div>
 
       <!-- 2. Navigation Area -->
-      <nav class="footer-col" aria-label="Footer Navigation">
+      <nav class="footer-col footer-nav" aria-label="Footer Navigation">
         <span class="footer-col-title">Navigation</span>
         <ul>
           <li><a href="#about">About Us</a></li>
@@ -570,7 +569,7 @@
       </nav>
 
       <!-- 3. Legal Area -->
-      <nav class="footer-col" aria-label="Legal Links">
+      <nav class="footer-col footer-nav" aria-label="Legal Links">
         <span class="footer-col-title">Legal</span>
         <ul>
           <li><a href="#privacy">Privacy Policy</a></li>

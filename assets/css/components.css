@@ -66,8 +66,8 @@ header.scrolled .bar {
   object-fit: contain;
 }
 
-/* Desktop Navigation */
-nav ul {
+/* Desktop Header Navigation */
+#nav ul {
   display: flex;
   align-items: center;
   gap: clamp(14px, 2.2vw, 32px);
@@ -76,7 +76,7 @@ nav ul {
   padding: 0;
 }
 
-nav a {
+#nav a {
   position: relative;
   font-size: 0.86rem;
   letter-spacing: 0.08em;
@@ -90,7 +90,7 @@ nav a {
   transition: color var(--transition-standard);
 }
 
-nav a::after {
+#nav a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -103,16 +103,16 @@ nav a::after {
   transition: transform var(--transition-smooth);
 }
 
-nav a:hover {
+#nav a:hover {
   color: var(--color-text);
 }
 
-nav a:hover::after,
-nav a[aria-current="page"]::after {
+#nav a:hover::after,
+#nav a[aria-current="page"]::after {
   transform: scaleX(1);
 }
 
-nav a[aria-current="page"] {
+#nav a[aria-current="page"] {
   color: var(--color-text);
 }
 
@@ -564,12 +564,32 @@ main p a:hover {
 }
 
 /* ==========================================================================
-   6. Contact Page & Form Architecture
+   6. Contact Page & Form Architecture (Compact & Viewport-Friendly)
    ========================================================================== */
+#v-contact section {
+  padding-block: clamp(24px, 4vh, 44px);
+}
+
+#v-contact .eyebrow {
+  margin-bottom: 0.4em;
+}
+
+#v-contact h1 {
+  margin: 0 0 0.4em;
+  font-size: clamp(2rem, 3.2vw, 2.7rem);
+}
+
+.contact-sub {
+  margin: 0 0 1.5rem;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--color-muted);
+}
+
 .contact-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
-  gap: clamp(32px, 5vw, 76px);
+  gap: clamp(28px, 4vw, 56px);
   align-items: start;
 }
 
@@ -579,32 +599,55 @@ main p a:hover {
 
 .contact-sidebar {
   min-width: 0;
-  padding-top: clamp(0px, 3.5vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 6px;
+}
+
+.contact-sidebar-block h3 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.contact-sidebar-block p {
+  margin: 0 0 8px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+.contact-verification-note {
+  margin-top: 0;
+  padding: 12px 16px;
+  font-size: 0.82rem;
+  line-height: 1.5;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 label {
   display: block;
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   font-weight: 500;
-  letter-spacing: 0.04em;
-  margin: 0 0 8px;
+  letter-spacing: 0.03em;
+  margin: 0 0 6px;
   color: var(--color-text);
 }
 
 input, select, textarea {
   width: 100%;
   box-sizing: border-box;
-  min-height: var(--input-height);
-  padding: 12px 14px;
+  min-height: 46px;
+  padding: 11px 14px;
   border: 1px solid var(--color-border);
   background-color: var(--color-surface);
   color: var(--color-text);
   font-family: inherit;
-  font-size: 16px;
+  font-size: 0.92rem;
   border-radius: var(--radius-small);
   transition: border-color var(--transition-standard), box-shadow var(--transition-standard);
 }
@@ -617,17 +660,23 @@ input:focus, select:focus, textarea:focus {
 
 textarea {
   resize: vertical;
-  min-height: 130px;
-  line-height: 1.6;
+  min-height: 105px;
+  height: 110px;
+  max-height: 220px;
+  line-height: 1.55;
 }
 
 .err {
   color: #B3261E;
-  font-size: 0.82rem;
-  min-height: 1.25em;
-  margin-top: 4px;
+  font-size: 0.78rem;
+  min-height: 0;
+  margin-top: 3px;
   display: block;
   line-height: 1.3;
+}
+
+.err:empty {
+  display: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -643,14 +692,33 @@ textarea {
   pointer-events: none;
 }
 
+.form-submit-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.form-submit-row .btn {
+  min-height: 46px;
+  padding: 12px 32px;
+  font-size: 0.88rem;
+}
+
+.form-privacy-hint {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
 .form-status {
-  padding: 14px 18px;
-  margin-top: 24px;
-  font-size: 0.9rem;
+  padding: 10px 14px;
+  margin-top: 10px;
+  font-size: 0.85rem;
   border-left: 3px solid var(--color-accent);
   border-radius: 0 var(--radius-small) var(--radius-small) 0;
   background: color-mix(in srgb, var(--color-accent) 6%, transparent);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .form-status[hidden] {
@@ -658,7 +726,7 @@ textarea {
 }
 
 /* ==========================================================================
-   7. Reusable Footer Architecture
+   7. Reusable Footer Architecture (Vertical Column Flow)
    ========================================================================== */
 footer {
   border-top: 1px solid var(--color-border);
@@ -669,18 +737,21 @@ footer {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: clamp(24px, 4vw, 56px);
-  padding-block: clamp(36px, 5vw, 56px) 36px;
+  padding-block: clamp(28px, 4vw, 44px) 24px;
   font-size: 0.9rem;
   color: var(--color-muted);
 }
 
 .footer-col {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .footer-col-title {
   display: block;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   color: var(--color-text);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -689,32 +760,58 @@ footer {
 }
 
 .footer-col ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.footer-col li {
+  display: block !important;
+  width: auto !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .footer-col a {
-  display: inline-flex;
-  align-items: center;
-  padding: 7px 0;
-  color: var(--color-muted);
-  transition: color var(--transition-standard);
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 3px 0 !important;
+  color: var(--color-muted) !important;
+  font-size: 0.88rem !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  white-space: normal !important;
+  min-height: unset !important;
+  position: static !important;
+  transition: color var(--transition-standard) !important;
 }
 
 .footer-col a:hover {
-  color: var(--color-text);
+  color: var(--color-text) !important;
+}
+
+.footer-col a::after {
+  display: none !important;
+  content: none !important;
 }
 
 .footer-statement {
-  margin-top: 14px;
+  margin-top: 12px;
   max-width: 44ch;
-  line-height: 1.6;
+  line-height: 1.5;
+  font-size: 0.86rem;
 }
 
 .footer-bottom {
   border-top: 1px solid var(--color-border-subtle);
-  padding-block: 22px;
+  padding-block: 16px;
   font-size: 0.82rem;
   color: var(--color-muted);
   display: flex;
