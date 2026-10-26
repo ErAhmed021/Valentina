@@ -131,6 +131,14 @@
     max-width: min(100%, 420px);
   }
 
+  .banner-media {
+    aspect-ratio: 16 / 9;
+  }
+
+  .philosophy-media {
+    max-width: 100%;
+  }
+
   .contact-layout {
     grid-template-columns: minmax(0, 1fr);
     gap: 40px;
