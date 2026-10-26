@@ -1,37 +1,56 @@
 /* ==========================================================================
    Valentina Precious — Corporate & Lifestyle Design System
-   main.css: Foundations, Tokens, Resets, Typography & Grid
+   main.css: Foundations, Design System Tokens, Resets, Typography & Grid
    ========================================================================== */
 
 :root {
-  /* Core Color Palette (Light Mode - Premium Editorial Ivory & Berry) */
-  --bg: #F6F3EE;
-  --bg-rgb: 246, 243, 238;
-  --bg2: #FCFBF8;
-  --ink: #191919;
-  --ink-rgb: 25, 25, 25;
-  --mute: #5F574E;
-  --line: #C9C1B7;
-  --acc: #7A1F3D;
-  --acc-hover: #5E162E;
-  --ph: #E4DED5;
+  /* Design System Color Tokens (Light Mode - Premium Editorial Ivory & Berry) */
+  --color-background: #F6F3EE;
+  --color-surface: #FCFBF8;
+  --color-text: #191919;
+  --color-muted: #5F574E;
+  --color-border: #C9C1B7;
+  --color-border-subtle: rgba(201, 193, 183, 0.45);
+  --color-accent: #7A1F3D;
+  --color-accent-hover: #5E162E;
+  --color-placeholder: #E4DED5;
+
+  /* Aliases for backwards compatibility */
+  --bg: var(--color-background);
+  --bg2: var(--color-surface);
+  --ink: var(--color-text);
+  --mute: var(--color-muted);
+  --line: var(--color-border);
+  --acc: var(--color-accent);
+  --acc-hover: var(--color-accent-hover);
+  --ph: var(--color-placeholder);
 
   /* Typography Stack */
   --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   --font-sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  /* Spacing & Layout Tokens */
-  --pad: clamp(20px, 4.5vw, 64px);
-  --max-width: 1360px;
-  --header-height: 74px;
-  --radius-sm: 2px;
-  --radius-md: 4px;
+  /* Layout & Container Tokens */
+  --container-width: 1320px;
+  --max-width: var(--container-width);
+  --space-section: clamp(2.5rem, 5.5vw, 5.5rem);
+  --space-content: clamp(1.25rem, 4vw, 3rem);
+  --pad: clamp(16px, 4vw, 56px);
+  --header-height: 72px;
 
-  /* Animation Timings */
+  /* Component Dimensions */
+  --button-height: 48px;
+  --input-height: 48px;
+  --icon-size-sm: 13px;
+  --icon-size-md: 18px;
+  --icon-size-lg: 20px;
+  --radius-small: 2px;
+  --radius-medium: 4px;
+
+  /* Motion & Animation Timings */
   --ease-editorial: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --transition-fast: 0.2s var(--ease-editorial);
-  --transition-smooth: 0.4s var(--ease-editorial);
-  --transition-slow: 0.8s var(--ease-editorial);
+  --transition-standard: 180ms var(--ease-editorial);
+  --transition-smooth: 320ms var(--ease-editorial);
+  --transition-slow: 750ms var(--ease-editorial);
 
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
@@ -41,31 +60,29 @@
 /* Dark Mode Tokens (Luxury Obsidian & Soft Rose) */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #171513;
-    --bg-rgb: 23, 21, 19;
-    --bg2: #1F1C19;
-    --ink: #F1ECE4;
-    --ink-rgb: 241, 236, 228;
-    --mute: #B3AA9E;
-    --line: #4A443D;
-    --acc: #E0A3B6;
-    --acc-hover: #F2C1CF;
-    --ph: #2A2622;
+    --color-background: #171513;
+    --color-surface: #1F1C19;
+    --color-text: #F1ECE4;
+    --color-muted: #B3AA9E;
+    --color-border: #4A443D;
+    --color-border-subtle: rgba(74, 68, 61, 0.5);
+    --color-accent: #E0A3B6;
+    --color-accent-hover: #F2C1CF;
+    --color-placeholder: #2A2622;
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --bg: #171513;
-  --bg-rgb: 23, 21, 19;
-  --bg2: #1F1C19;
-  --ink: #F1ECE4;
-  --ink-rgb: 241, 236, 228;
-  --mute: #B3AA9E;
-  --line: #4A443D;
-  --acc: #E0A3B6;
-  --acc-hover: #F2C1CF;
-  --ph: #2A2622;
+  --color-background: #171513;
+  --color-surface: #1F1C19;
+  --color-text: #F1ECE4;
+  --color-muted: #B3AA9E;
+  --color-border: #4A443D;
+  --color-border-subtle: rgba(74, 68, 61, 0.5);
+  --color-accent: #E0A3B6;
+  --color-accent-hover: #F2C1CF;
+  --color-placeholder: #2A2622;
   color-scheme: dark;
 }
 
@@ -84,12 +101,11 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--bg);
-  color: var(--ink);
+  background-color: var(--color-background);
+  color: var(--color-text);
   font-family: var(--font-sans);
   font-size: clamp(15px, 0.35vw + 14px, 17px);
   line-height: 1.7;
-  overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -101,12 +117,12 @@ body {
   position: absolute;
   top: -999px;
   left: 16px;
-  background: var(--bg2);
-  color: var(--ink);
+  background: var(--color-surface);
+  color: var(--color-text);
   padding: 12px 20px;
-  border: 1px solid var(--acc);
+  border: 1px solid var(--color-accent);
   font-weight: 500;
-  z-index: 100;
+  z-index: 1000;
   text-decoration: none;
   transition: top 0.2s ease;
 }
@@ -117,7 +133,7 @@ body {
 
 /* Focus Visibility */
 :focus-visible {
-  outline: 2px solid var(--acc);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
 }
 
@@ -129,23 +145,25 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   line-height: 1.12;
   margin: 0 0 0.5em;
-  color: var(--ink);
-  overflow-wrap: anywhere;
+  color: var(--color-text);
+  overflow-wrap: break-word;
+  word-break: break-word;
   letter-spacing: -0.01em;
 }
 
 h1 {
-  font-size: clamp(2.2rem, min(3.8vw, 7.5vh) + 1rem, 4.4rem);
+  font-size: clamp(2.1rem, min(3.8vw, 7vh) + 0.9rem, 4.2rem);
   line-height: 1.06;
 }
 
 h2 {
-  font-size: clamp(1.85rem, 2.8vw + 0.6rem, 3.1rem);
-  line-height: 1.1;
+  font-size: clamp(1.75rem, 2.6vw + 0.6rem, 2.9rem);
+  line-height: 1.12;
 }
 
 h3 {
-  font-size: clamp(1.25rem, 1.2vw + 0.95rem, 1.6rem);
+  font-size: clamp(1.2rem, 1.1vw + 0.9rem, 1.55rem);
+  line-height: 1.25;
 }
 
 p {
@@ -156,7 +174,7 @@ p {
 
 strong {
   font-weight: 600;
-  color: var(--ink);
+  color: var(--color-text);
 }
 
 em {
@@ -166,7 +184,7 @@ em {
 a {
   color: inherit;
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-standard);
 }
 
 img, svg {
@@ -180,7 +198,7 @@ img, svg {
    ========================================================================== */
 .wrap {
   width: 100%;
-  max-width: var(--max-width);
+  max-width: var(--container-width);
   margin-inline: auto;
   padding-inline: var(--pad);
 }
@@ -191,8 +209,8 @@ main {
 }
 
 section {
-  padding-block: clamp(32px, 5vw, 84px);
-  border-bottom: 1px solid var(--line);
+  padding-block: var(--space-section);
+  border-bottom: 1px solid var(--color-border);
 }
 
 section:last-of-type {
@@ -203,7 +221,7 @@ section:last-of-type {
 .grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(28px, 5vw, 84px);
+  gap: clamp(28px, 5vw, 76px);
   align-items: center;
 }
 
@@ -224,18 +242,19 @@ section:last-of-type {
   font-size: 0.75rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--acc);
+  color: var(--color-accent);
   margin-bottom: 0.9em;
   font-weight: 500;
 }
 
 .note {
-  border-left: 2px solid var(--acc);
-  padding: 8px 18px;
-  color: var(--mute);
+  border-left: 2px solid var(--color-accent);
+  padding: 10px 18px;
+  color: var(--color-muted);
   font-size: 0.9rem;
   margin: 1.5em 0;
-  background: color-mix(in srgb, var(--acc) 4%, transparent);
+  background: color-mix(in srgb, var(--color-accent) 5%, transparent);
+  border-radius: 0 var(--radius-small) var(--radius-small) 0;
 }
 
 /* View Manager State (Hash-based router with graceful fallback) */
@@ -255,13 +274,13 @@ html:not(.js) .view {
 
 @media (prefers-reduced-motion: no-preference) {
   .view.on {
-    animation: fadeInView 0.45s var(--ease-editorial);
+    animation: fadeInView 0.35s var(--ease-editorial);
   }
 
   @keyframes fadeInView {
     from {
       opacity: 0;
-      transform: translateY(6px);
+      transform: translateY(4px);
     }
     to {
       opacity: 1;

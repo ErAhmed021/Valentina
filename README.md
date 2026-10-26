@@ -2,7 +2,7 @@
 
 Official corporate website and brand showcase for **Valentina Precious** (`https://valentinaprecious.com/`), an activewear and lifestyle brand founded and led by **Amol Naresh**.
 
-This repository provides a modular, lightweight, zero-dependency static architecture crafted with premium editorial minimalism, accessible navigation, technical SEO, and mobile-first responsive performance.
+This repository provides a modular, lightweight, zero-dependency static architecture crafted with premium editorial minimalism, accessible navigation, technical SEO, unified icon systems, and mobile-first responsive performance.
 
 ---
 
@@ -19,11 +19,12 @@ valentina-precious/
 ├── apple-touch-icon.png     # 180x180 iOS / mobile touch icon with authentic monogram
 ├── README.md                # Project documentation
 ├── .gitignore               # Ignored local files & system logs
+├── Valentina Precious.html  # Legacy file redirected to index.html
 │
 ├── assets/
 │   ├── css/
-│   │   ├── main.css         # Tokens, typography, reset, grid & layout foundations
-│   │   ├── components.css   # Buttons, cards, pills, forms, footer & headers
+│   │   ├── main.css         # Design tokens, typography, reset, grid & layout foundations
+│   │   ├── components.css   # Buttons, cards, pills, unified icons, forms, footer & headers
 │   │   └── responsive.css   # Viewport breakpoints (320px to 1920px)
 │   │
 │   ├── js/
@@ -50,7 +51,7 @@ valentina-precious/
 │   └── icons/
 │       ├── email.svg                  # Accessible envelope icon
 │       ├── phone.svg                  # Accessible phone icon
-│       ├── external.svg               # External hyperlink indicator
+│       ├── external.svg               # Standardized external hyperlink indicator
 │       ├── menu.svg                   # Navigation drawer trigger
 │       ├── close.svg                  # Navigation drawer close trigger
 │       └── social/
@@ -67,11 +68,12 @@ valentina-precious/
 
 ## 2. Core Features & Architecture
 
+- **Unified Icon System**: Standardized SVG icons with no duplicates. Brand channels feature official glyphs (`instagram.svg`, `facebook.svg`) without redundant external-link indicators or text repetition. External link indicators (`.icon-ext`) are restricted exclusively to genuine external boutique destinations.
+- **Design System Tokens**: Fully declared CSS variables in `assets/css/main.css` (`--color-background`, `--color-surface`, `--color-text`, `--color-muted`, `--color-border`, `--color-accent`, `--space-section`, `--button-height`, `--input-height`, etc.) ensuring consistent spacing, radius, and typography across all components.
+- **Distinctive Reusable Footer**: Features a clean 4-area hierarchy (Brand, Navigation, Legal, Connect) with exactly one logo, no duplicate social links, and an automatic copyright year.
+- **Responsive Contact Architecture**: Balanced two-column desktop composition collapsing to a clean, comfortable single-column mobile flow with zero horizontal scrolling or clipping.
+- **Mobile-First Responsiveness**: Rigorously verified across 320px, 360px, 375px, 390px, 430px, 768px, 1024px, 1280px, 1440px, and 1920px viewports with touch targets $\ge 44\text{px}$.
 - **Brand Authenticity**: Integrated authentic brand assets (Halo 'V' Monogram and Outline Typography Wordmark) with automatic light and dark mode adaptation.
-- **Hash-Routed Editorial Views**: Smooth progressive transitions across `#home`, `#about`, `#founder`, `#brand`, `#contact`, `#privacy`, and `#terms`.
-- **Keyboard & Screen Reader Accessibility**: Fully compliant landmark hierarchy, `skip-link`, `aria-expanded`, `aria-current`, and Escape key drawer dismissal.
-- **Technical SEO & Structured Data**: Canonical URL declarations, comprehensive Open Graph & Twitter meta tags, and verified Schema.org JSON-LD structured data (`Organization`, `WebSite`, `Person`).
-- **Responsive Architecture**: Fluid layout scaling with `clamp()`, grid auto-fitting, touch-friendly targets ($\ge 44\text{px}$), and zero horizontal overflow across 320px–1920px viewports.
 - **Truthful Corporate Enquiries**: Contact form features client-side validation, anti-spam honeypot, and transparent status feedback explaining live endpoint requirements without fake delivery confirmations.
 
 ---

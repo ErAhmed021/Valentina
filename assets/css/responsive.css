@@ -1,14 +1,15 @@
 /* ==========================================================================
    Valentina Precious — Corporate & Lifestyle Design System
-   responsive.css: Viewport-specific adjustments (320px to 1920px)
+   responsive.css: Comprehensive Viewport Refinement (320px to 1920px)
    ========================================================================== */
 
 /* ==========================================================================
-   Large Desktop & Ultra-wide Displays (>= 1600px, 1920px)
+   1. Ultra-Wide & Large Desktop Displays (>= 1600px, 1920px)
    ========================================================================== */
 @media (min-width: 1600px) {
   :root {
-    --max-width: 1480px;
+    --container-width: 1440px;
+    --pad: 64px;
   }
 
   body {
@@ -18,23 +19,29 @@
 
 @media (min-width: 1920px) {
   :root {
-    --max-width: 1600px;
+    --container-width: 1520px;
   }
 }
 
 /* ==========================================================================
-   Laptops & Small Desktops (<= 1200px)
+   2. Small Desktop & Large Laptops (1024px - 1280px)
    ========================================================================== */
 @media (max-width: 1200px) {
   .grid.w {
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: 48px;
+  }
+
+  .fg {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 32px;
   }
 }
 
 /* ==========================================================================
-   Tablet & Mobile Navigation Breakpoint (<= 900px)
+   3. Tablet & Mobile Navigation Breakpoint (<= 960px)
    ========================================================================== */
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   #mb {
     display: inline-flex;
   }
@@ -45,18 +52,18 @@
     left: 0;
     right: 0;
     top: 100%;
-    background-color: var(--bg);
-    border-bottom: 1px solid var(--line);
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
     padding: 16px var(--pad) 24px;
-    max-height: calc(85vh - var(--header-height));
+    max-height: calc(85dvh - var(--header-height));
     overflow-y: auto;
-    box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.45);
     z-index: 99;
   }
 
   nav.open {
     display: block;
-    animation: slideDownMenu 0.3s var(--ease-editorial);
+    animation: slideDownMenu 0.28s var(--ease-editorial);
   }
 
   @keyframes slideDownMenu {
@@ -79,7 +86,7 @@
 
   nav li {
     width: 100%;
-    border-bottom: 1px solid color-mix(in srgb, var(--line) 40%, transparent);
+    border-bottom: 1px solid var(--color-border-subtle);
   }
 
   nav li:last-child {
@@ -93,6 +100,7 @@
     align-items: center;
     padding: 12px 0;
     font-size: 0.95rem;
+    letter-spacing: 0.08em;
   }
 
   nav a::after {
@@ -100,34 +108,37 @@
   }
 
   nav a[aria-current="page"] {
-    color: var(--acc);
+    color: var(--color-accent);
     font-weight: 600;
+  }
+
+  .fg {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px;
   }
 }
 
 /* ==========================================================================
-   Tablet Devices (<= 768px)
+   4. Portrait Tablets & Mobile Devices (<= 768px)
    ========================================================================== */
 @media (max-width: 768px) {
   .grid, .grid.w {
     grid-template-columns: minmax(0, 1fr);
-    gap: 36px;
+    gap: 40px;
   }
 
   .r45 {
     max-width: min(100%, 420px);
   }
 
-  .fg {
+  .contact-layout {
     grid-template-columns: minmax(0, 1fr);
-    gap: 32px;
-    padding-block: 36px 24px;
+    gap: 40px;
   }
 
-  .lnk {
-    margin-left: 0;
-    margin-top: 10px;
-    display: inline-block;
+  .contact-sidebar {
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
   }
 
   .footer-bottom {
@@ -138,65 +149,106 @@
 }
 
 /* ==========================================================================
-   Large Mobile Devices (<= 430px)
+   5. Compact Mobile Viewports (<= 600px)
    ========================================================================== */
-@media (max-width: 430px) {
+@media (max-width: 600px) {
+  .fg {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    padding-block: 36px 24px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+    gap: 20px;
+  }
+
+  .pills {
+    gap: 8px;
+  }
+
+  .pills li {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ==========================================================================
+   6. Standard Mobile Devices (<= 430px, 390px, 375px, 360px)
+   ========================================================================== */
+@media (max-width: 480px) {
   :root {
     --pad: 18px;
   }
 
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
   .btn {
     width: 100%;
-    min-height: 48px;
+    min-height: var(--button-height);
+    text-align: center;
+    justify-content: center;
   }
 
   .lnk {
-    display: block;
     width: 100%;
-    margin-left: 0;
-    margin-top: 12px;
     text-align: center;
-    background: none;
-  }
-
-  .brand-wordmark {
-    max-width: 170px;
+    justify-content: center;
+    margin-left: 0;
+    min-height: 44px;
   }
 
   .cards {
     grid-template-columns: minmax(0, 1fr);
     gap: 24px;
   }
+
+  .brand-wordmark {
+    max-width: 160px;
+  }
+
+  .brand-social-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
 }
 
-/* ==========================================================================
-   Standard Mobile Devices (<= 375px)
-   ========================================================================== */
 @media (max-width: 375px) {
   :root {
     --pad: 16px;
   }
 
   h1 {
-    font-size: 2.1rem;
+    font-size: 2.05rem;
   }
 
   h2 {
-    font-size: 1.7rem;
+    font-size: 1.65rem;
   }
 
   .brand-wordmark {
-    max-width: 145px;
+    max-width: 140px;
   }
 
   .brand-monogram {
     width: 24px;
-    height: 30px;
+    height: 32px;
+  }
+
+  #mb {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    gap: 6px;
   }
 }
 
 /* ==========================================================================
-   Small Mobile Devices (<= 320px)
+   7. Small Mobile Devices (<= 320px)
    ========================================================================== */
 @media (max-width: 320px) {
   :root {
@@ -204,40 +256,54 @@
   }
 
   h1 {
-    font-size: 1.9rem;
+    font-size: 1.85rem;
   }
 
   h2 {
-    font-size: 1.55rem;
+    font-size: 1.48rem;
   }
 
   .bar {
-    gap: 10px;
+    gap: 8px;
   }
 
   .brand-wordmark {
-    max-width: 125px;
+    max-width: 120px;
+  }
+
+  .brand-monogram {
+    width: 22px;
+    height: 28px;
   }
 
   #mb {
-    padding: 6px 10px;
-    font-size: 0.8rem;
+    padding: 6px 8px;
+    font-size: 0.76rem;
+  }
+
+  #mb span:not([aria-hidden]) {
+    display: none; /* Icon-only at 320px to prevent header overflow */
+  }
+
+  .note {
+    padding: 8px 12px;
+    font-size: 0.84rem;
   }
 }
 
 /* ==========================================================================
-   Compact Viewport Height Adjustments
+   8. Viewport Height Adjustments
    ========================================================================== */
-@media (min-width: 900px) and (max-height: 780px) {
+@media (min-width: 960px) and (max-height: 780px) {
   .r45 {
     max-width: max(220px, calc(52vh * 0.8));
   }
 
   h1 {
-    font-size: clamp(2rem, 6vh + 0.6rem, 3.4rem);
+    font-size: clamp(2rem, 5.8vh + 0.6rem, 3.2rem);
   }
 
   section {
-    padding-block: 28px;
+    padding-block: clamp(24px, 4.5vh, 48px);
   }
 }
