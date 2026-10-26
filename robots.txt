@@ -1,0 +1,10 @@
+# robots.txt for https://valentinaprecious.com
+User-agent: *
+Allow: /
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+Allow: /assets/icons/
+
+# Sitemaps
+Sitemap: https://valentinaprecious.com/sitemap.xml
