@@ -401,6 +401,10 @@ main p a:hover {
   margin-top: 36px;
 }
 
+.difference-cards {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+}
+
 .card {
   text-decoration: none;
   display: flex;
